@@ -6,6 +6,10 @@
 # dependencies
 /node_modules
 
+# testing
+/coverage
+__snapshots__
+
 # misc
 .env.local
 .env.development.local
