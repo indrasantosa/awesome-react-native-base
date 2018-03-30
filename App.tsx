@@ -2,46 +2,35 @@ import * as React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Container, Content, Header, Title, Button, Left, Right, Body, Icon } from 'native-base'
 import { Font } from 'expo'
-import { StackNavigator } from 'react-navigation'
+import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'
+import HomeScreen from './App/Containers/HomeScreen'
+import ListScreen from './App/Containers/ListScreen'
 
-export default class App extends React.Component<{}> {
+export default TabNavigator({
+  Home: { screen: HomeScreen },
+  List: { screen: ListScreen },
+}, {
+  navigationOptions: ({ navigation }) => ({
+    tabBarIcon: ({ focused, tintColor }) => {
+      const { routeName } = navigation.state
+      let iconName
+      if (routeName === 'Home') {
+        iconName = `ios-information-circle${focused ? '' : '-outline'}`
+      } else if (routeName === 'Settings') {
+        iconName = `ios-options${focused ? '' : '-outline'}`
+      }
 
-  componentDidMount() {
-    Font.loadAsync({
-      'Roboto': require('native-base/Fonts/Roboto.ttf'),
-      'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
-    })
-  }
-
-  render() {
-    return (
-      <Container>
-        <Header>
-          <Left>
-            <Button transparent>
-              <Icon name='menu' />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Header</Title>
-          </Body>
-          <Right />
-        </Header>
-        <Content padder>
-          <Text>
-            This is Content Section
-          </Text>
-        </Content>
-      </Container>
-    )
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+      // You can return any component that you like here! We usually use an
+      // icon component from react-native-vector-icons
+      return <Icon name='home' />
+    },
+  }),
+  tabBarOptions: {
+    activeTintColor: 'tomato',
+    inactiveTintColor: 'gray',
   },
+  tabBarComponent: TabBarBottom,
+  tabBarPosition: 'bottom',
+  animationEnabled: false,
+  swipeEnabled: false
 })
