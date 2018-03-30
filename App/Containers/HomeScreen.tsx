@@ -1,16 +1,11 @@
 import * as React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Container, Content, Header, Title, Button, Left, Right, Body, Icon } from 'native-base'
-import { Font } from 'expo'
 import { StackNavigator } from 'react-navigation'
 
-export default class App extends React.Component<{}> {
+export default class HomeScreen extends React.Component<{}> {
 
   componentDidMount() {
-    Font.loadAsync({
-      'Roboto': require('native-base/Fonts/Roboto.ttf'),
-      'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
-    })
   }
 
   render() {

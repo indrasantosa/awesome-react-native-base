@@ -1,5 +1,5 @@
 {
-  "name": "awesomeAppTs",
+  "name": "awesome-react-native-base",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -7,7 +7,7 @@
     "@types/react": "^16.0.38",
     "@types/react-native": "^0.52.0",
     "@types/react-test-renderer": "^16.0.0",
-    "jest-expo": "25.0.0",
+    "jest-expo": "^26.0.0",
     "react-native-scripts-ts": "1.11.3",
     "react-native-typescript-transformer": "^1.2.3",
     "react-test-renderer": "16.2.0",
@@ -27,6 +27,8 @@
     "@expo/vector-icons": "^6.3.1",
     "@types/expo": "^25.0.2",
     "@types/react-navigation": "^1.2.3",
+    "babel-jest": "^22.4.3",
+    "babel-preset-react-native": "^4.0.0",
     "expo": "^25.0.0",
     "native-base": "^2.4.1",
     "react": "16.2.0",
@@ -34,10 +36,19 @@
     "react-navigation": "^1.5.8"
   },
   "jest": {
+    "preset": "jest-expo",
     "transform": {
+      "^.+\\.jsx?$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "verbose": true,
+    "transformIgnorePatterns": [
+      "node_modules/(?!(.*)/)"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -45,6 +56,11 @@
       "jsx",
       "json",
       "node"
-    ]
+    ],
+    "globals": {
+      "ts-jest": {
+        "useBabelrc": true
+      }
+    }
   }
 }
