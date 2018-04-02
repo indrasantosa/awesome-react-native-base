@@ -1,9 +1,12 @@
 import * as React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { Container, Content, Header, Title, Button, Left, Right, Body, Icon } from 'native-base'
-import { StackNavigator } from 'react-navigation'
+import {StyleSheet, Text, View} from 'react-native'
+import {Container, Content, Header, Title, Button, Left, Right, Body, Icon} from 'native-base'
+import {StackNavigator} from 'react-navigation'
+import {observer} from 'mobx-react'
+import todoList from '../MobX/todoList'
 
-export default class HomeScreen extends React.Component<{}> {
+@observer
+export default class ListScreen extends React.Component<{}> {
 
   componentDidMount() {
   }
@@ -23,9 +26,16 @@ export default class HomeScreen extends React.Component<{}> {
           <Right />
         </Header>
         <Content padder>
-          <Text>
-            This is Content Section
-          </Text>
+          {todoList.list.map((item) => {
+            return (
+              <Text>
+                {item}
+              </Text>
+            )
+          })}
+          <Button onPress={() => todoList.addTodo('Hello World')}>
+            <Text>Add Item</Text>
+          </Button>
         </Content>
       </Container>
     )

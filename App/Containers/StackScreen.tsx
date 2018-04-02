@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { Container, Content, Header, Title, Button, Left, Right, Body, Icon } from 'native-base'
 import { StackNavigator } from 'react-navigation'
 
-export default class HomeScreen extends React.Component<{}> {
+export default class StackScreen extends React.Component<{}> {
 
   componentDidMount() {
   }
@@ -13,12 +13,12 @@ export default class HomeScreen extends React.Component<{}> {
       <Container>
         <Header>
           <Left>
-            <Button transparent >
+            <Button transparent>
               <Icon name='menu' />
             </Button>
           </Left>
           <Body>
-            <Title>Home Screen</Title>
+            <Title>Stack Screen</Title>
           </Body>
           <Right />
         </Header>

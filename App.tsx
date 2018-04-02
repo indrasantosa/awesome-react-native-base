@@ -7,6 +7,7 @@ import HomeScreen from './App/Containers/HomeScreen'
 import ListScreen from './App/Containers/ListScreen'
 
 export default TabNavigator({
+  // First item here will be the default route
   Home: { screen: HomeScreen },
   List: { screen: ListScreen },
 }, {
