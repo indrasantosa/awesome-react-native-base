@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native'
 import {Container, Content, Header, Title, Button, Left, Right, Body, Icon} from 'native-base'
 import {StackNavigator} from 'react-navigation'
 import {observer} from 'mobx-react'
-import todoList from '../MobX/todoList'
+import todoList from '../MobX/TodoList'
 
 @observer
 export default class ListScreen extends React.Component<{}> {
@@ -26,9 +26,9 @@ export default class ListScreen extends React.Component<{}> {
           <Right />
         </Header>
         <Content padder>
-          {todoList.list.map((item) => {
+          {todoList.list.map((item, index) => {
             return (
-              <Text>
+              <Text key={index}>
                 {item}
               </Text>
             )
